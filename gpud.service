@@ -1,0 +1,14 @@
+[Unit]
+Description=GPU Switcher daemon
+Documentation=None for now
+
+[Service]
+ExecStart=/usr/local/bin/gpud
+ExecReload=/bin/kill -HUP $MAINPID
+Type=simple
+KillMode=process
+Restart=on-failure
+RestartSec=60s
+
+[Install]
+WantedBy=graphical.target
